@@ -37,12 +37,7 @@ const Home: NextPage = () => {
 
     // Send the form data to our forms API on Vercel and get a response.
     const response = await fetch(endpoint, options);
-
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    const result = await response.json();
-    alert(`Is this your full name: ${result.first} ${result.last}`);
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -88,4 +83,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Home;
