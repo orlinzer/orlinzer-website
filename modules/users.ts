@@ -1,9 +1,25 @@
 
-import fs from 'fs';
+import fs, { existsSync, lstatSync, readFileSync, writeFileSync } from 'fs';
+
+let users: User[] = [];
 
 // users in JSON file for simplicity, store in a db for production applications
-import usersJSON from '../data/users.json';
-let users: User[] = usersJSON;
+// if (existsSync('/data/users.json')) {
+try {
+  users = JSON.parse(readFileSync('data/users.json', {
+    encoding: 'utf-8',
+  }));
+} catch (e) {
+  console.error(e);
+}
+// }
+// let state = lstatSync('/data/users.json');
+// if (state.isFile()) {
+
+// }
+
+// import usersJSON from '../data/users.json';
+// let users: User[] = Array.isArray(usersJSON) ? usersJSON : [];
 
 export const usersRepo = {
   getAllUsers,
