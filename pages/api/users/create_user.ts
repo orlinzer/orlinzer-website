@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createUser } from '../../../modules/users';
 
-export const createUserAPI = (
+export const CreateUserAPI = (
   req: NextApiRequest,
   res: NextApiResponse<APIData>
 ) => {
@@ -44,4 +44,4 @@ export const createUserAPI = (
   return res.status(200).json({ result: [user] });
 };
 
-export default createUserAPI;
+export default CreateUserAPI;

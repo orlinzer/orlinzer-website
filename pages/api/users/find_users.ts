@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createUser, getAllUsers } from '../../../modules/users';
 
-export const UpdateUserAPI = (
+export const FindUsersAPI = (
   req: NextApiRequest,
   res: NextApiResponse<APIData>
 ) => {
@@ -19,4 +19,4 @@ export const UpdateUserAPI = (
   return res.status(200).json({ result: users });
 };
 
-export default UpdateUserAPI;
+export default FindUsersAPI;

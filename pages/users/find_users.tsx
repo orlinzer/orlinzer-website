@@ -17,7 +17,7 @@ const options = {
   },
 };
 
-const UpdateUserPage: NextPage = () => {
+const FindUsersPage: NextPage = () => {
 
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
@@ -77,4 +77,4 @@ const UpdateUserPage: NextPage = () => {
   )
 }
 
-export default UpdateUserPage;
+export default FindUsersPage;

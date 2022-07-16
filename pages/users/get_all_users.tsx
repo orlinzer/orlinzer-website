@@ -17,7 +17,7 @@ const options = {
   },
 };
 
-const Home: NextPage = () => {
+const GetAllUsersPage: NextPage = () => {
 
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
@@ -48,12 +48,6 @@ const Home: NextPage = () => {
   const handleSubmit = async (event: SubmitEvent) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault()
-
-    // Get data from the form.
-    const data = {
-      first: event.target.first.value,
-      last: event.target.last.value,
-    };
 
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data);
@@ -107,4 +101,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home;
+export default GetAllUsersPage;

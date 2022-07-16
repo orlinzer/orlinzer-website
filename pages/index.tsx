@@ -61,17 +61,6 @@ const Home: NextPage = () => {
       </header>
 
       <main className={styles.main}>
-        {/* <form action="/api/set_user" method="post"> */}
-        <form onSubmit={handleSubmit}>
-
-          <label htmlFor='first'>First name:</label>
-          <input type="text" id='first' name="first" required />
-
-          <label htmlFor='last'>Last name:</label>
-          <input type="text" id='last' name="last" required />
-
-          <button type="submit">Submit</button>
-        </form>
       </main>
 
       <footer className={styles.footer}>
