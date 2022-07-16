@@ -6,15 +6,22 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
 
+  interface Data {
+    first: { value: any },
+    last: { value: any }
+  }
+
   // Handles the submit event on form submit.
-  const handleSubmit = async (event: { preventDefault: () => void; target: { first: { value: any }; last: { value: any } } }) => {
+  const handleSubmit = async (event: SubmitEvent) => {
+    // SubmitEvent = { preventDefault: () => void; target: { first: { value: any }; last: { value: any } } }
     // Stop the form from submitting and refreshing the page.
     event.preventDefault()
 
     // Get data from the form.
+    const tmpData = (event.target ?? { first: { value: undefined }, last: { value: undefined } }) as Data;
     const data = {
-      first: event.target.first.value,
-      last: event.target.last.value,
+      first: tmpData.first.value,
+      last: tmpData.last.value,
     };
 
     // Send the data to the server in JSON format.
