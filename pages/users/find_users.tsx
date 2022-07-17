@@ -49,7 +49,6 @@ const FindUsersPage: NextPage = () => {
       then(res => res.json()).
       then(data => setData(data)).
       catch(error => setError(error))
-
   };
 
   return (
