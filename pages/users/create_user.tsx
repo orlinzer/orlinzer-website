@@ -26,7 +26,7 @@ export const CreateUserPage: NextPage<CreateUserPageProps> = ({ }) => {
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
   const [data, setData] = useState({});
-  const [error, setError] = useState('');
+  const [error, setError] = useState<APIError | null>(null);
 
   // Handles the submit event on form submit.
   const handleSubmit = async (event: FormEvent) => {
@@ -61,12 +61,10 @@ export const CreateUserPage: NextPage<CreateUserPageProps> = ({ }) => {
     <Layout
       subtitle='Create User'
     >
-
-      <p style={{ color: 'red' }}>{error}</p>
+      {error && <p style={{ color: 'red' }}>{`${error?.code} ${error?.message}`}</p>}
       {data && JSON.stringify(data)}
 
       <form onSubmit={handleSubmit}>
-
         <label htmlFor='first'>First name:</label>
         <input type="text" id='first' name="first" required value={first} onChange={e => setFirst(e.target.value)} />
 

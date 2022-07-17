@@ -22,7 +22,7 @@ const options = {
 const GetAllUsersPage: NextPage = () => {
 
   const [users, setUsers] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<APIError | null>(null);
 
   const loadUsers = () => {
     fetch(endpoint, options).
@@ -52,7 +52,7 @@ const GetAllUsersPage: NextPage = () => {
     <Layout
       subtitle='Get All Users'
     >
-      <p style={{ color: 'red' }}>{error}</p>
+      {error && <p style={{ color: 'red' }}>{`${error?.code} ${error?.message}`}</p>}
       {/* {users && JSON.stringify(users)} */}
       <UsersList users={users} />
     </Layout>

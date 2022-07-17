@@ -22,7 +22,7 @@ const DeleteUserPage: NextPage = () => {
 
   const [id, setId] = useState('');
   const [data, setData] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<APIError | null>(null);
 
   // Handles the submit event on form submit.
   const handleSubmit = async (event: FormEvent) => {
@@ -56,7 +56,7 @@ const DeleteUserPage: NextPage = () => {
     <Layout
       subtitle='Delete User'
     >
-      <p style={{ color: 'red' }}>{error}</p>
+      {error && <p style={{ color: 'red' }}>{`${error?.code} ${error?.message}`}</p>}
       {data && JSON.stringify(data)}
 
       <form onSubmit={handleSubmit}>
