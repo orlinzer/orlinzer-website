@@ -55,11 +55,6 @@ const GetAllUsersPage: NextPage = () => {
       <p style={{ color: 'red' }}>{error}</p>
       {/* {users && JSON.stringify(users)} */}
       <UsersList users={users} />
-
-      {/* <form action="/api/set_user" method="post"> */}
-      {/* <form onSubmit={handleSubmit}>
-          <button type="submit">Submit</button>
-        </form> */}
     </Layout>
   )
 }
