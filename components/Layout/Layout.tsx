@@ -5,6 +5,8 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 
+import styles from "./Layout.module.css";
+
 type LayoutProps = {
   children?: ReactNode;
   subtitle?: string;
@@ -19,13 +21,15 @@ export const Layout: NextPage<LayoutProps> = ({ children, subtitle }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header
-        subtitle={subtitle}
-      />
+      <div className={styles.Layout}>
+        <Header
+          subtitle={subtitle}
+        />
 
-      <Main>{children}</Main>
+        <Main>{children}</Main>
 
-      <Footer />
+        <Footer />
+      </div>
     </Fragment>
   );
 };

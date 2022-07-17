@@ -1,0 +1,15 @@
+.UsersList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.UsersListItem {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: red;
+}

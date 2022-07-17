@@ -1,0 +1,15 @@
+.Footer {
+  height: 3rem;
+  min-height: 3rem;
+  max-height: 3rem;
+
+  width: 100%;
+
+  background-color: yellow;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: center;
+}

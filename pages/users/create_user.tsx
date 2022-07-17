@@ -58,10 +58,12 @@ export const CreateUserPage: NextPage<CreateUserPageProps> = ({ }) => {
   };
 
   return (
-    <Layout>
+    <Layout
+      subtitle='Create User'
+    >
 
       <p style={{ color: 'red' }}>{error}</p>
-      {JSON.stringify(data)}
+      {data && JSON.stringify(data)}
 
       <form onSubmit={handleSubmit}>
 

@@ -1,22 +1,32 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { createUser, getAllUsers } from '../../../modules/users';
+import { createUser, deleteUser, getAllUsers } from '../../../modules/users';
 
 export const DeleteUserAPI = (
   req: NextApiRequest,
   res: NextApiResponse<APIData>
 ) => {
-  if (req.method !== 'GET') {
+  if (req.method !== 'DELETE') {
     return res.status(400).json({
       error: {
         code: 1,
-        message: 'Can create user only with "GET" request'
+        message: 'Can create user only with "DELETE" request'
       }
     });
   }
 
-  let users = getAllUsers();
-  return res.status(200).json({ result: users });
+  const id = req.body?.userId;
+  if (!id) {
+    return res.status(400).json({
+      error: {
+        code: 2,
+        message: 'Input "userId" is missing'
+      }
+    });
+  }
+
+  deleteUser(id);
+  return res.status(200).json({ result: [] });
 };
 
 export default DeleteUserAPI;

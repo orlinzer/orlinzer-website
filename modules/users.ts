@@ -3,8 +3,6 @@ import fs, { existsSync, lstatSync, readFileSync, writeFileSync } from 'fs';
 
 let users: User[] = [];
 
-// users in JSON file for simplicity, store in a db for production applications
-// if (existsSync('/data/users.json')) {
 try {
   users = JSON.parse(readFileSync('data/users.json', {
     encoding: 'utf-8',
@@ -12,12 +10,7 @@ try {
 } catch (e) {
   console.error(e);
 }
-// }
-// let state = lstatSync('/data/users.json');
-// if (state.isFile()) {
-
-// }
-
+// Old version
 // import usersJSON from '../data/users.json';
 // let users: User[] = Array.isArray(usersJSON) ? usersJSON : [];
 
