@@ -1,9 +1,17 @@
 
-import fs, { existsSync, lstatSync, readFileSync, writeFileSync } from 'fs';
+import fs, { existsSync, lstatSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 
 let users: User[] = [];
 
 try {
+  const DirState = lstatSync('data');
+  if (!DirState.isDirectory()) {
+    mkdirSync('data');
+  }
+  const FileState = lstatSync('data/users.json');
+  if (!FileState.isFile()) {
+    saveData();
+  }
   users = JSON.parse(readFileSync('data/users.json', {
     encoding: 'utf-8',
   }));
