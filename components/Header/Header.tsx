@@ -1,4 +1,5 @@
 import { NextComponentType, NextPage } from "next";
+import Link from "next/link";
 import { Fragment, ReactNode } from "react";
 
 import styles from './Header.module.css';
@@ -10,7 +11,7 @@ type HeaderProps = {
 export const Header: NextPage<HeaderProps> = ({ subtitle }) => {
   return (
     <header className={styles.Header}>
-      <a href="/"><h1>Or Linzer</h1></a>
+      <Link href="/"><h1>Or Linzer</h1></Link>
       {subtitle &&
         <h2>{subtitle}</h2>
       }
